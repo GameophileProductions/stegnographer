@@ -7,9 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="POST" action="">
-        <input type="password" name="password1" >
-        <button type="submit" text="Enter your password"></button>
+    {% if encodeform or decodeform %}
+    <form method="POST" action="{% url 'stegnograph:home' %}" enctype="multipart/form-data">
+        {% csrf_token  %}
+        {{encodeform.as_p}}
+        <input type="hidden", name="formtype", value="encode">
+        <button type="submit" >Encode</button>
     </form>
+    <form method="POST" action="{% url 'stegnograph:home' %}" enctype="multipart/form-data">
+        {% csrf_token  %}
+        {{decodeform.as_p}}
+        <input type="hidden", name="formtype", value="decode">
+        <button type="submit" >Decode</button>
+    </form>
+    {% else %}
+    <a href="{{ media_download }}"  download >Download Image</a>
+    {% endif %}
 </body>
 </html>
