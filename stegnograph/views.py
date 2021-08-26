@@ -28,8 +28,10 @@ def home(request):
                 container_image = PIL.Image.open(mode='r', fp=container_image_path)
                 encode(box_image, container_image, 2).save(os.path.join(BASE_DIR,'media',str(obj.name),'encoded.tiff'))
                 obj.encrypted_image_path = f'{obj.name}\encoded.tiff'
-                
-                return render(request,'base.html',{'image_download': obj.encrypted_image_path.url})
+                # print(' '.join(obj.encrypted_image_path.url.split("%")))
+                print(os.path.join(BASE_DIR,'media',str(obj.name),'encoded.tiff'))
+                # return render(request,'base.html',{'image_download': obj.encrypted_image_path.url})
+                return render(request,'base.html',{'media_download':' '.join(obj.encrypted_image_path.url.split('%'))} )
             else:
                 pass
                
