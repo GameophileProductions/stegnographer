@@ -5,7 +5,7 @@ from stegnographer.settings import BASE_DIR
 # Create your models here.
 class Manupulation(models.Model):
     dt = datetime.datetime.now()
-    name = '{}{}{} {}{}{}'.format(dt.day,dt.month,dt.year, dt.hour, dt.minute, dt.second)
+    name = '{}{}{}_{}{}{}'.format(dt.day,dt.month,dt.year, dt.hour, dt.minute, dt.second)
     box_image_path = models.ImageField(upload_to=name,blank=True)
     container_image_path  = models.ImageField(upload_to=name,blank=True)
     encrypted_image_path = models.ImageField(upload_to=name,blank=True)

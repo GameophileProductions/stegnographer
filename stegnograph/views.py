@@ -2,6 +2,7 @@ from django.shortcuts import render,HttpResponse, redirect
 from .forms import EncodeForm,DecodeForm
 from .models import Manupulation
 from stegnographer.settings import MEDIA_ROOT, BASE_DIR, MEDIA_URL
+# from stegnographer.settings import BASE_DIR
 from .mediator import *
 import PIL.Image
 import os
@@ -26,12 +27,14 @@ def home(request):
                 
                 box_image = PIL.Image.open(mode='r', fp=box_image_path)
                 container_image = PIL.Image.open(mode='r', fp=container_image_path)
-                encode(box_image, container_image, 2).save(os.path.join(BASE_DIR,'media',str(obj.name),'encoded.tiff'))
-                obj.encrypted_image_path = f'{obj.name}\encoded.tiff'
+                encode(box_image, container_image, 2).save(os.path.join(MEDIA_ROOT,str(obj.name),'encoded.tiff'))
+                # encode(box_image, container_image, 2).save(os.path.join(BASE_DIR,'media',str(obj.name),'encoded.tiff'))
+                obj.encrypted_image_path = os.path.join(obj.name, 'encode.tiff')
                 # print(' '.join(obj.encrypted_image_path.url.split("%")))
-                print(os.path.join(BASE_DIR,'media',str(obj.name),'encoded.tiff'))
+                # print(os.path.join(BASE_DIR,'media',str(obj.name),'encoded.tiff'))
                 # return render(request,'base.html',{'image_download': obj.encrypted_image_path.url})
-                return render(request,'base.html',{'media_download':' '.join(obj.encrypted_image_path.url.split('%'))} )
+                # return render(request,'base.html',{'media_download':' '.join(obj.encrypted_image_path.url.split('%'))} )
+                return render(request,'base.html',{'base_url':BASE_DIR, 'media_download': obj} )
             else:
                 pass
                
