@@ -1,6 +1,5 @@
 from django.db import models
 import datetime, os
-from stegnographer.settings import BASE_DIR
 
 # Create your models here.
 class Manupulation(models.Model):

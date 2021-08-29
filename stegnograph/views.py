@@ -1,8 +1,9 @@
 from django.shortcuts import render,HttpResponse, redirect
 from .forms import EncodeForm,DecodeForm
 from .models import Manupulation
-from stegnographer.settings import MEDIA_ROOT, BASE_DIR, MEDIA_URL
+from stegnographer.settings import  BASE_DIR, MEDIA_URL, MEDIA_ROOT
 # from stegnographer.settings import BASE_DIR
+from django.core.files import File
 from .mediator import *
 import PIL.Image
 import os
@@ -21,21 +22,20 @@ def home(request):
         if form.is_valid():
             data = form.save()
             if form_type == 'encode':
-                obj = Manupulation.objects.get(id=data.id)
-                box_image_path = obj.box_image_path.path
-                container_image_path = obj.container_image_path.path
+                item  = Manupulation.objects.get(id=data.id)
+                path = os.path.join(MEDIA_ROOT,str(item.name),'encoded.tiff')
+                print(path)
+                encryption(
+                    box_image_path=item.box_image_path.path,
+                    container_image_path=item.container_image_path.path,
+                    encryption_output_path=path)
                 
-                box_image = PIL.Image.open(mode='r', fp=box_image_path)
-                container_image = PIL.Image.open(mode='r', fp=container_image_path)
-                encode(box_image, container_image, 2).save(os.path.join(MEDIA_ROOT,str(obj.name),'encoded.tiff'))
-                # encode(box_image, container_image, 2).save(os.path.join(BASE_DIR,'media',str(obj.name),'encoded.tiff'))
-                obj.encrypted_image_path = os.path.join(obj.name, 'encode.tiff')
-                # print(' '.join(obj.encrypted_image_path.url.split("%")))
-                # print(os.path.join(BASE_DIR,'media',str(obj.name),'encoded.tiff'))
-                # return render(request,'base.html',{'image_download': obj.encrypted_image_path.url})
-                # return render(request,'base.html',{'media_download':' '.join(obj.encrypted_image_path.url.split('%'))} )
-                return render(request,'base.html',{'base_url':BASE_DIR, 'media_download': obj} )
+                item.encrypted_image_path.save('encoded.jpeg', File(open(path, 'rb')))
+                path =  os.path.join(MEDIA_URL,str(item.name),'encoded.jpeg')
+                print(path)
+                # item.delete()
+                return render(request,'base.html', {'media_download': item})
             else:
                 pass
-               
+    
     return render(request, "base.html", {'encodeform': EncodeForm(), 'decodeform': DecodeForm()})

@@ -119,6 +119,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+# AWS_STORAGE_BUCKET_NAME =  os.environ.get('AWS_STORAGE_BUCKET_NAME')
 
 STATIC_URL = '/static/'
 APPEND_SLASH = True
@@ -129,13 +134,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # AWS_QUERYSTRING_AUTH = False
-
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-# AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-# AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-# AWS_STORAGE_BUCKET_NAME =  os.environ.get('AWS_STORAGE_BUCKET_NAME')
 
 # AWS_ACCESS_KEY_ID = 'AKIAV7GXPXZWWEBMKYJE'
 # AWS_SECRET_ACCESS_KEY = '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'

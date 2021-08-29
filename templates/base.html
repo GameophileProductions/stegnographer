@@ -21,8 +21,9 @@
         <button type="submit" >Decode</button>
     </form>
     {% else %}
-    <!-- <a href="{{ media_download.box_image_path.url }}"  download >Download Image</a> -->
-    <img src="{{ media_download.encrypted_image_path.url  }}" alt="image">
+    <!-- <a href="{{ media_download.encrypted_image_path.url }}"  download >Download Image</a> -->
+    <img src="{{ media_download.box_image_path.path  }}" alt="image">
+    <!-- <img src="{{ media_download.encrypted_image_path.url  }}" alt="image"> -->
     {% endif %}
 </body>
 </html>
