@@ -16,4 +16,4 @@ class Manupulation(models.Model):
         self.box_image_path.delete(save=False)
         self.container_image_path.delete(save=False)
         self.encrypted_image_path.delete(save=False)
-        super().delete(*args, **kwargs)        
+        super().delete(*args, **kwargs)
