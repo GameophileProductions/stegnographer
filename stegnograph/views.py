@@ -21,8 +21,8 @@ def home(request):
             
         if form.is_valid():
             data = form.save()
+            item  = Manupulation.objects.get(id=data.id)
             if form_type == 'encode':
-                item  = Manupulation.objects.get(id=data.id)
                 path = os.path.join(MEDIA_ROOT,str(item.name),'encoded.tiff')
                 encryption(
                     box_image_path=item.box_image_path.path,
@@ -32,22 +32,25 @@ def home(request):
                 item.save()
                 
                 # return render(request,'base.html', {'media_download': item})
-                return render(request,'index.html', {'media_download': item})
+                return render(request,'base.html', {'media_download': item})
             else:
-                pass
+                path = os.path.join(MEDIA_ROOT,str(item.name),'decoded.tiff')
+                
+                decryption(encrypted_image_path=item.encrypted_image_path.path, decryption_output_path=path)
+                
+                item.box_image_path = f'{item.name}/decoded.tiff'
+                item.save()
+                
+                return render(request,'base.html', {'media_download': item , 'decrypted':'True'})
+                
     empty_db()
-    return render(request, "index.html", {'encodeform': EncodeForm(), 'decodeform': DecodeForm()})
+    return render(request, "base.html", {'encodeform': EncodeForm(), 'decodeform': DecodeForm()})
 
 def empty_db():
+    import shutil
     items = Manupulation.objects.all()
-    for item in items:
-        item.encrypted_image_path.delete()
+    for item in items:            
         item.delete()
-        
-        
-                # import pdb
-                # pdb.set_trace()
-                # img_path = os.path.join(MEDIA_URL,)
-                # path =  os.path.join(MEDIA_URL,str(item.name),'encoded.jpeg')
-                # img_path = os.path.join(MEDIA_URL,str(item.name),'encoded.tiff')
-                # item.delete()
+    
+    if os.path.exists(os.path.join(BASE_DIR,'media')):
+        shutil.rmtree(os.path.join(BASE_DIR,'media'))

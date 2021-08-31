@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stegnographer</title>
 </head>
+
 <body>
     {% if encodeform or decodeform %}
     <form method="POST" action="{% url 'stegnograph:home' %}" enctype="multipart/form-data">
-        {% csrf_token  %}
+        {% csrf_token %}
         {{encodeform.as_p}}
-        <input type="hidden", name="formtype", value="encode">
-        <button type="submit" >Encode</button>
+        <input type="hidden" , name="formtype" , value="encode">
+        <button type="submit">Encode</button>
     </form>
     <form method="POST" action="{% url 'stegnograph:home' %}" enctype="multipart/form-data">
-        {% csrf_token  %}
+        {% csrf_token %}
         {{decodeform.as_p}}
-        <input type="hidden", name="formtype", value="decode">
-        <button type="submit" >Decode</button>
+        <input type="hidden" , name="formtype" , value="decode">
+        <button type="submit">Decode</button>
     </form>
     {% else %}
-    <a href="{{ media_download.encrypted_image_path.url }}"  download >Download Image</a>
-    <!-- <img src="{{ media_download.box_image_path.url  }}" alt="image"> -->
-    <!-- <img src="{{ media_download.encrypted_image_path.url  }}" alt="image"> -->
+        {% if decrypted %}
+            <a href="{{ media_download.box_image_path.url }}" download>Download Image</a>
+        {% else %}
+            <a href="{{ media_download.encrypted_image_path.url }}" download>Download Image</a>
+        {% endif %}
     {% endif %}
 </body>
+
 </html>
