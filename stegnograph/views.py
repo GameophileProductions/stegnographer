@@ -1,50 +1,39 @@
-from django.shortcuts import render,HttpResponse, redirect
-from .forms import EncodeForm,DecodeForm
+from django.shortcuts import render,HttpResponse
 from .models import Manupulation
-from stegnographer.settings import  BASE_DIR, MEDIA_URL, MEDIA_ROOT
-# from stegnographer.settings import BASE_DIR
-from django.core.files import File
+from stegnographer.settings import  BASE_DIR, MEDIA_ROOT
 from .mediator import *
-import PIL.Image
-import os, asyncio
-from PIL import ImageTk as itk
+import os
+
 # Create your views here.
+
 def home(request):
     if request.method == "POST":
-        form_type = ''
-        if request.POST.get('formtype') == 'encode':
-            form = EncodeForm(request.POST, request.FILES)
-            form_type = 'encode'
-        else:
-            form = DecodeForm(request.POST, request.FILES)
-            form_type = 'decode'
-            
-        if form.is_valid():
-            data = form.save()
-            item  = Manupulation.objects.get(id=data.id)
-            if form_type == 'encode':
-                path = os.path.join(MEDIA_ROOT,str(item.name),'encoded.tiff')
-                encryption(
+        if request.POST['formtype'] == 'encode':
+            box_image = request.FILES['image1']
+            container_image = request.FILES['image2']
+            item = Manupulation(box_image_path=box_image, container_image_path=container_image)
+            item.save()
+            path = os.path.join(MEDIA_ROOT,str(item.name),'encoded.tiff')
+            encryption(
                     box_image_path=item.box_image_path.path,
                     container_image_path=item.container_image_path.path,
                     encryption_output_path=path)
-                item.encrypted_image_path = f'{item.name}/encoded.tiff'
-                item.save()
+            item.encrypted_image_path = f'{item.name}/encoded.tiff'
+            
+            return render(request, 'download.html', {'encrypted':'yes','media':item})
+            
+        else:
+            encrypted_image = request.FILES['encrypted_image']
+            item = Manupulation(encrypted_image_path=encrypted_image)
+            item.save()
+            path = os.path.join(MEDIA_ROOT,str(item.name),'decoded.tiff')
+            decryption(encrypted_image_path=item.encrypted_image_path.path, decryption_output_path=path)
                 
-                # return render(request,'base.html', {'media_download': item})
-                return render(request,'base.html', {'media_download': item})
-            else:
-                path = os.path.join(MEDIA_ROOT,str(item.name),'decoded.tiff')
-                
-                decryption(encrypted_image_path=item.encrypted_image_path.path, decryption_output_path=path)
-                
-                item.box_image_path = f'{item.name}/decoded.tiff'
-                item.save()
-                
-                return render(request,'base.html', {'media_download': item , 'decrypted':'True'})
+            item.box_image_path = f'{item.name}/decoded.tiff'
+            return render(request, 'download.html', {'decrypted':'yes','media':item})
                 
     empty_db()
-    return render(request, "base.html", {'encodeform': EncodeForm(), 'decodeform': DecodeForm()})
+    return render(request, "index.html")
 
 def empty_db():
     import shutil
