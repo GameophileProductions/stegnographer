@@ -21,13 +21,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'jc%hh$nb0&aoj)a73-^w!ozoc)sm%v%3fgz)-*450yz_73gafw'
+SECRET_KEY = config('SECRET_KEY')
+# SECRET_KEY = 'jc%hh$nb0&aoj)a73-^w!ozoc)sm%v%3fgz)-*450yz_73gafw'
 # SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -119,22 +121,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-# AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-# AWS_STORAGE_BUCKET_NAME =  os.environ.get('AWS_STORAGE_BUCKET_NAME')
 
 STATIC_URL = '/static/'
 APPEND_SLASH = True
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-# AWS_QUERYSTRING_AUTH = False
-
-# AWS_ACCESS_KEY_ID = 'AKIAV7GXPXZWWEBMKYJE'
-# AWS_SECRET_ACCESS_KEY = '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'
-# AWS_STORAGE_BUCKET_NAME = 'librarymedia'
