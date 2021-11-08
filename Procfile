@@ -1,1 +1,1 @@
-web: waitress-serve --port=$PORT stegnographer.wsgi.application
+web: waitress-serve --port=$PORT stegnographer.wsgi:application
