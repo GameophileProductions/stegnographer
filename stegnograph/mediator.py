@@ -1,6 +1,6 @@
 import PIL.Image
 import os
-from PIL import ImageTk as itk
+# from PIL import ImageTk as itk
 
 
 def encryption(box_image_path, container_image_path, encryption_output_path):
