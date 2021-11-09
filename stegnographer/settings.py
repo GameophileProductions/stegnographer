@@ -22,15 +22,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = config('SECRET_KEY')
-SECRET_KEY = r'jc%hh$nb0&aoj)a73-^w!ozoc)sm%v%3fgz)-*450yz_73gafw'
+SECRET_KEY = r'*i=c&9h%-j(!-soc7q0jr=@!d5r-ch+$fw5qm*8yumdr9t=*o@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 # DEBUG = False
 
-# ALLOWED_HOSTS = ['gameostash.herokuapp.com']
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
