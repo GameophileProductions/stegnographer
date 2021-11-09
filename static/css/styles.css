@@ -69,7 +69,7 @@ body {
 .footer {
   text-align: center;
   padding: 1.5rem;
-  margin:1rem auto 1rem auto;
+  margin:1.5rem auto 0 auto;
 }
 
 @media (max-width: 945px) {
