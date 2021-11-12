@@ -1,43 +1,47 @@
-# Stegnograper
+<div align="center"> 
+  <img src="https://firebasestorage.googleapis.com/v0/b/projectbucket-52626.appspot.com/o/Stegnographer.svg?alt=media&token=56be60ca-5002-4dc0-b015-a36ddcb59e3c" height="105"/>
+
 > This is a web based application which enables users to hide 1 image into another without destroying any of the 2 images.
 > Also, to seperate out hidden image, we have decryption alogorithm also.
-> Live demo [_here_](https://gameostash.herokuapp.com/). 
+> Live demo [_here_](https://gameostash.herokuapp.com/).
 
-## Table of Contents
-* [General Info](#general-information)
-* [Technologies Used](#technologies-used)
-* [Features](#features)
-* [Screenshots](#screenshots)
-* [Setup](#setup)
-* [Usage](#usage)
-* [Room for Improvement](#room-for-improvement)
-* [Acknowledgements](#acknowledgements)
-* [Credits](#credits)
-* [Contact](#contact)
+<strong><h2 style="color:yellow">INDEX</h2></strong>
 
+- [General Info](#general-information)
+- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Setup](#setup)
+- [Usage](#usage)
+- [Room for Improvement](#room-for-improvement)
+- [Acknowledgements](#acknowledgements)
+- [Credits](#credits)
+- [Contact](#contact)
+  <br/><br/>
 
-## General Information
-- Provide general information about your project here.
-- Many a times we want to hide a particular image but due to security issues we are not able to do so. Due to this fact(and yes we have lot's of images we don't want to show and neither want to store somewhere), hiding it seemed a better option.
-- We created this project to learn how tasks and other manupulations could be done without paying much attention to dependencies and creating containers to ship our product
+<strong><h2 style="color:yellow">General Information</h2></strong><br/>
 
+- Provide general information about your project here.<br/><br/>
+- Many a times we want to hide a particular image but due to security issues we are not able to do so. Due to this fact(and yes we have lot's of images we don't want to show and neither want to store somewhere), hiding it seemed a better option.<br/><br/>
+- We created this project to learn how tasks and other manupulations could be done without paying much attention to dependencies and creating containers to ship our product<br/><br/><br/>
 
-## Technologies Used
+<img src="https://firebasestorage.googleapis.com/v0/b/projectbucket-52626.appspot.com/o/TechStackUsed.svg?alt=media&token=1c472635-f3a9-4164-bec0-4e1284951343" height="75"/><br/><br/>
+
 - Django - v3.7.1
 - Postgresql
 - Pillow for image manupulation - v8.3.1
+  <br/><br/>
 
+<img src="https://firebasestorage.googleapis.com/v0/b/projectbucket-52626.appspot.com/o/Features.svg?alt=media&token=5b1dbffb-030c-4ec7-806d-22428c37ec03" height="75"/><br/><br/>
 
-## Features
 - Hide 1 image inside another.
-- Retrieve hidden image back without compromising with quality of the 2 images used.
+- Retrieve hidden image back without compromising with quality of the 2 images used.<br/><br/>
 
+<img src="https://firebasestorage.googleapis.com/v0/b/projectbucket-52626.appspot.com/o/Gallery.svg?alt=media&token=cb18a1d8-53bd-48c3-8584-0b4710f2ff60" height="75"/><br/><br/>
 
-## Screenshots
 ![Home Screen](./static/images/screenshot_1.png)
 
-
-## Setup
+<strong><h2 style="color:yellow">Setup for running it Locally</h2></strong>
 
 To run this project, follow the steps listed below.
 
@@ -81,21 +85,21 @@ $ source virtualenv_name/bin/activate
 ```
 
 Clone this repo
- ```
- git clone https://github.com/GameophileProductions/stegnographer.git
- ```
 
- `cd stegnographer`
+```
+git clone https://github.com/GameophileProductions/stegnographer.git
+```
 
- and run
- ```
- pip install -r requirements.txt
- ```
+`cd stegnographer`
 
- This will install all the dependencies 
+and run
 
+```
+pip install -r requirements.txt
+```
 
-## Usage
+This will install all the dependencies
+<br/><br/>
 
 Run server on port 8000 by using
 
@@ -103,26 +107,58 @@ Run server on port 8000 by using
 waitress-serve --port=8000 stegnographer.wsgi:application
 ```
 
+<br/><br/>
+<strong><h2 style="color:yellow">Room for Improvement </h2></strong>
 
-## Room for Improvement
-
-Room for improvement:
 - Stability and efficiency of hidding image
-- User interface 
+- User interface
 - Scalability of this app
 
-To do:
+<br/><br/>
+<strong><h2 style="color:yellow">To Do </h2></strong>
+
 - Loading css
 
+<br/><br/>
+<img src="https://img.shields.io/badge/Contributors-black?logo=Github&style=for-the-badge" height="55"/>
 
-## Acknowledgements
+  <table>
+<tr align="center">
+ <td>
+<!-- Here I am writing my own code -->
+Om Mukherjee
 
-- Many thanks to [_Om-Mukherjee_](https://github.com/Oyum2814) without whom this project could not be completed
+<p align="center">
+<img src = "https://avatars.githubusercontent.com/Oyum2814"  height="120" alt="Om">
+</p>
 
-## Credits
+<p align="center">
+<a href = "https://github.com/Oyum2814"><img src = "https://logos-download.com/wp-content/uploads/2016/09/GitHub_logo.png" width="36" height = "36"/></a>
+<a href = "https://www.linkedin.com/in/om-mukherjee-b842b9212/">
+<img src = "https://vaguard.dodlive.mil/files/2014/11/linkedIn-logo.png" width="36" height="36"/>
+</a>
+</p>
+    <strong>Frontend <br/> &<br/>Algorithm Generator<strong>
+</td>
 
-- Frontend and algorithm was done by [_Om-Mukherjee_](https://github.com/Oyum2814)
-- Backend and hosting was done by [_Achyut_](https://github.com/Achyut-0705)
+<td>
+  
+Achyut Shukla
 
-## Contact
-Created by [@Achyut](https://github.com/Achyut-0705) and [@Om](https://github.com/Oyum2814) - feel free to contact me!
+<p align="center">
+<img src = "https://avatars.githubusercontent.com/Achyut-0705"  height="120" alt="Achyut">
+</p>
+<p align="center">
+<a href = "https://github.com/Achyut-0705"><img src = "https://logos-download.com/wp-content/uploads/2016/09/GitHub_logo.png" width="36" height = "36"/></a>
+<a href = "https://www.linkedin.com/in/achyut-shukla-070502/">
+<img src = "https://vaguard.dodlive.mil/files/2014/11/linkedIn-logo.png" width="36" height="36"/>
+</a>
+</p>
+  <strong>Backend <br/>&<br/> Hosting<strong>
+</td>
+  
+  </table>
+</tr>
+</div>
+  <br>
+</div>
