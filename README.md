@@ -135,7 +135,7 @@ Om Mukherjee
 <p align="center">
 <a href = "https://github.com/Oyum2814"><img src = "https://logos-download.com/wp-content/uploads/2016/09/GitHub_logo.png" width="36" height = "36"/></a>
 <a href = "https://www.linkedin.com/in/om-mukherjee-b842b9212/">
-<img src = "https://vaguard.dodlive.mil/files/2014/11/linkedIn-logo.png" width="36" height="36"/>
+<img src = "https://www.pikpng.com/pngl/m/57-572097_linkedin-transparent-icon-linked-in-logo-with-white.png" width="36" height="36"/>
 </a>
 </p>
     <strong>Frontend <br/> &<br/>Algorithm Generator<strong>
@@ -151,7 +151,7 @@ Achyut Shukla
 <p align="center">
 <a href = "https://github.com/Achyut-0705"><img src = "https://logos-download.com/wp-content/uploads/2016/09/GitHub_logo.png" width="36" height = "36"/></a>
 <a href = "https://www.linkedin.com/in/achyut-shukla-070502/">
-<img src = "https://vaguard.dodlive.mil/files/2014/11/linkedIn-logo.png" width="36" height="36"/>
+<img src = "https://www.pikpng.com/pngl/m/57-572097_linkedin-transparent-icon-linked-in-logo-with-white.png" width="36" height="36"/>
 </a>
 </p>
   <strong>Backend <br/>&<br/> Hosting<strong>
