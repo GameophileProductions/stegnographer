@@ -5,22 +5,6 @@
 > Also, to seperate out hidden image, we have decryption alogorithm also.
 > Live demo [_here_](https://gameostash.herokuapp.com/).
 
-<strong><h2 style="color:yellow">INDEX</h2></strong>
-
-- [General Info](#general-information)
-- [Technologies Used](#technologies-used)
-- [Features](#features)
-- [Screenshots](#screenshots)
-- [Setup](#setup)
-- [Usage](#usage)
-- [Room for Improvement](#room-for-improvement)
-- [Acknowledgements](#acknowledgements)
-- [Credits](#credits)
-- [Contact](#contact)
-  <br/><br/>
-
-<strong><h2 style="color:yellow">General Information</h2></strong><br/>
-
 - Provide general information about your project here.<br/><br/>
 - Many a times we want to hide a particular image but due to security issues we are not able to do so. Due to this fact(and yes we have lot's of images we don't want to show and neither want to store somewhere), hiding it seemed a better option.<br/><br/>
 - We created this project to learn how tasks and other manupulations could be done without paying much attention to dependencies and creating containers to ship our product<br/><br/><br/>
