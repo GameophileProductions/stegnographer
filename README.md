@@ -25,7 +25,7 @@
 
 ![Home Screen](./static/images/screenshot_1.png)
 
-<strong><h2 style="color:#232323">Setup for running it Locally</h2></strong>
+<strong><h2 style="color:#364547">Setup for running it Locally</h2></strong>
 
 To run this project, follow the steps listed below.
 
@@ -92,14 +92,14 @@ waitress-serve --port=8000 stegnographer.wsgi:application
 ```
 
 <br/><br/>
-<strong><h2 style="color:#232323">Room for Improvement </h2></strong>
+<strong><h2 style="color:#364547">Room for Improvement </h2></strong>
 
 - Stability and efficiency of hidding image
 - User interface
 - Scalability of this app
 
 <br/><br/>
-<strong><h2 style="color:#232323">To Do </h2></strong>
+<strong><h2 style="color:#364547">To Do </h2></strong>
 
 - Loading css
 
