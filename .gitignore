@@ -3,4 +3,5 @@
 .env
 *.jpeg
 *.tiff
-*/__pycache__/*
+/*/__pycache__
+/temp.txt
