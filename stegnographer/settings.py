@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = False
 
 # ALLOWED_HOSTS = ['gameostash.herokuapp.com', '*.stegnographer.software']
-ALLOWED_HOSTS = ['stegnographer.software']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
